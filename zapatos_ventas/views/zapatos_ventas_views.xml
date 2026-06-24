@@ -42,6 +42,9 @@
         <field name="res_model">zapatos.venta</field>
         <field name="view_mode">list,form</field> </record>
 
-    <menuitem id="menu_zapatos_ventas_root" name="Ventas Zapatos" sequence="20"/>
-    <menuitem id="menu_zapatos_ventas_registro" name="Control de Ventas" parent="menu_zapatos_ventas_root" action="action_zapatos_ventas" sequence="10"/>
+    <menuitem id="menu_zapatos_ventas_registro" 
+              name="Ventas de Zapatos" 
+              parent="zapatos.menu_zapatos_root" 
+              action="action_zapatos_ventas" 
+              sequence="20"/>
 </odoo>
