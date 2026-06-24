@@ -1,0 +1,175 @@
+<odoo>
+    <record id="view_zapatos_envio_list" model="ir.ui.view">
+        <field name="name">zapatos.envio.list</field>
+        <field name="model">zapatos.envio</field>
+        <field name="arch" type="xml">
+            <list string="Envíos">
+
+                <field name="codigo"/>
+                <field name="zapato_id"/>
+                <field name="cliente_id"/>
+                <field name="transportista"/>
+                <field name="fecha_envio"/>
+                <field name="fecha_entrega"/>
+                <field name="estado"/>
+
+            </list>
+        </field>
+    </record>
+
+    <record id="view_zapatos_envio_form" model="ir.ui.view">
+        <field name="name">zapatos.envio.form</field>
+        <field name="model">zapatos.envio</field>
+        <field name="arch" type="xml">
+
+            <form string="Envío">
+
+                <header>
+
+                    <field
+                        name="estado"
+                        widget="statusbar"/>
+
+                </header>
+
+                <sheet>
+
+                    <group>
+
+                        <group string="Información General">
+
+                            <field name="codigo" readonly="1"/>
+
+                            <field name="zapato_id"/>
+
+                            <field name="cliente_id"/>
+
+                            <field name="prioridad"/>
+
+                        </group>
+
+                        <group string="Información del Envío">
+
+                            <field name="transportista"/>
+
+                            <field name="numero_guia"/>
+
+                            <field name="fecha_envio"/>
+
+                            <field name="fecha_entrega"/>
+
+                        </group>
+
+                    </group>
+
+                    <notebook>
+
+                        <page string="Cliente">
+
+                            <group>
+
+                                <group>
+
+                                    <field name="telefono" readonly="1"/>
+
+                                    <field name="email" readonly="1"/>
+
+                                </group>
+
+                                <group>
+
+                                    <field name="direccion" readonly="1"/>
+
+                                    <field name="ciudad"/>
+
+                                    <field name="provincia"/>
+
+                                </group>
+
+                            </group>
+
+                        </page>
+
+                        <page string="Costos">
+
+                            <group>
+
+                                <group>
+
+                                    <field name="costo"/>
+
+                                    <field name="dias_entrega" readonly="1"/>
+
+                                </group>
+
+                                <group>
+
+                                    <field name="entregado" readonly="1"/>
+
+                                </group>
+
+                            </group>
+
+                        </page>
+
+                        <page string="Observaciones">
+
+                            <field name="observaciones"/>
+
+                        </page>
+
+                    </notebook>
+
+                </sheet>
+
+            </form>
+
+        </field>
+    </record>
+
+
+    <record id="view_zapatos_envio_search" model="ir.ui.view">
+        <field name="name">zapatos.envio.search</field>
+        <field name="model">zapatos.envio</field>
+        <field name="arch" type="xml">
+
+            <search>
+
+                <field name="codigo"/>
+
+                <field name="cliente_id"/>
+
+                <field name="zapato_id"/>
+
+                <field name="transportista"/>
+
+                <filter
+                    string="Pendientes"
+                    name="pendientes"
+                    domain="[('estado','=','pendiente')]"/>
+
+                <filter
+                    string="En tránsito"
+                    name="transito"
+                    domain="[('estado','=','transito')]"/>
+
+                <filter
+                    string="Entregados"
+                    name="entregados"
+                    domain="[('estado','=','entregado')]"/>
+
+            </search>
+
+        </field>
+    </record>
+
+
+
+
+    <record id="action_zapatos_envio" model="ir.actions.act_window">
+        <field name="name">Envíos</field>
+        <field name="res_model">zapatos.envio</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

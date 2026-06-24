@@ -1,0 +1,10 @@
+<odoo>
+
+    <menuitem
+        id="menu_zapatos_envios"
+        name="Envíos"
+        parent="zapatos.menu_zapatos_root"
+        action="action_zapatos_envio"
+        sequence="20"/>
+
+</odoo>

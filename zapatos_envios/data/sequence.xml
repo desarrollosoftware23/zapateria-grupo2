@@ -1,0 +1,11 @@
+<odoo>
+
+    <record id="seq_envio" model="ir.sequence">
+        <field name="name">Secuencia Envíos</field>
+        <field name="code">zapatos.envio</field>
+        <field name="prefix">ENV</field>
+        <field name="padding">5</field>
+        <field name="number_increment">1</field>
+    </record>
+
+</odoo>
