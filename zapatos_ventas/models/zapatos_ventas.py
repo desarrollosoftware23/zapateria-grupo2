@@ -13,5 +13,5 @@ class ZapatosVenta(models.Model):
 
     @api.depends('cantidad', 'precio_unitario')
     def _compute_total_venta(self):
-        for record in record:
+        for record in self:
             record.total_venta = record.cantidad * record.precio_unitario
