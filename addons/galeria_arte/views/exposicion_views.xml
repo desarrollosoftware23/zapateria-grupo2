@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_arte_pieza_tree" model="ir.ui.view">
+        <field name="name">arte.pieza.tree</field>
+        <field name="model">arte.pieza</field>
+        <field name="arch" type="xml">
+            <list string="Obras">
+                <field name="name"/>
+                <field name="artista"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_arte_pieza" model="ir.actions.act_window">
+        <field name="name">Obras de Arte</field>
+        <field name="res_model">arte.pieza</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_galeria_root" name="Galería"/>
+    <menuitem id="menu_galeria_obras" name="Obras" parent="menu_galeria_root" action="action_arte_pieza"/>
+</odoo>
